@@ -1,7 +1,13 @@
 import openai
 from openai_api_key import api_key
 
-openai.api_key = api_key
+# Set up the API key with error handling
+try:
+    openai.api_key = api_key  # For security reasons import API key from another file
+    print("API Key set successfully.")
+except Exception as e:
+    print(f"Error setting API key: {e}")
+    raise
 
 
 def read_file(file_path):
