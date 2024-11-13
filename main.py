@@ -26,6 +26,8 @@ def save_file(file_path, content):
 
 def create_html_file(article):
     """Create an HTML file based on given text using OpenAI's GPT model."""
+    system = 'You are an assistant that converts a text article into HTML.'
+
     prompt = (
         'Convert the following article into HTML, using appropriate HTML tags to structure your content. Do not include'
         ' <html>, <head>, or <body> tags. Do not use any CSS or JS. The code should be ready to paste between <body>'
@@ -36,7 +38,7 @@ def create_html_file(article):
     )
 
     messages = [
-        {'role': 'system', 'content': 'You are an assistant that converts a text article into HTML.'},
+        {'role': 'system', 'content': system},
         {'role': 'user', 'content': prompt}
     ]
 
